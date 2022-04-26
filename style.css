@@ -1,0 +1,349 @@
+/*--Document Colors--*/
+
+/*
+
+    --border: rgb(223, 223, 223);
+    --content: rgb(80, 80, 80);
+    --accent1: #6fccd3;
+    --accent2: #00a7c1;
+    --accent3: #6f6fd3;
+
+    --background: #f1e5bc;
+    --accent: #0f2b53;
+    --blue: #0d94de;
+    --red: #c63141;
+
+    --background: #2b2c2e;
+    --accent: #faf3eb;
+    --blue: #0fb0a9;
+    --red: #ef7b30;
+
+    --background: #cdcfd1;
+    --accent: #040609;
+    --blue: #454c47;
+    --red: #f41050;
+
+    --background: #282c2b;
+    --accent: #fcfaf0;
+    --blue: #039bdd;
+    --red: #e2502f;
+
+*/
+
+/*--Dark Mode--*/
+
+:root, :root.light {
+    --background: #fefefe;
+    --accent: #0d0d0d;
+    --blue: #008bf9;
+    --red: #f21d44;
+}
+
+:root.dark {
+    --background: #0d0d0d;
+    --accent: #fefefe;
+    --blue: #008bf9;
+    --red: #f21d44;
+}
+
+/*--Scroll Behavior--*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*--Body Properties--*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /*background-image: linear-gradient(20deg, var(--accent3), var(--accent1), var(--accent2));*/
+    background-color: var(--background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.2s ease;
+}
+
+/*--Header Properties--*/
+
+.header {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.logoContainer {
+    width: 100%;
+    padding: 10vh 0 5vh 0;
+    display: flex;
+    align-items: center;
+    background-color: var(--accent);
+    transition: all 0.2s ease;
+}
+
+/*--Theme Button--*/
+
+
+.setTheme {
+    margin-left: 7vw;
+    border: 0.3em solid var(--red);
+    border-radius: 50%;
+    height: 2.5em;
+    width: 2.5em;
+    font-size: min(1rem, 5vh);
+    background-color: var(--accent);
+    outline: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.setTheme:hover {
+    background-color: var(--background);
+}
+
+/*--Logo Styling--*/
+
+.logo {
+    color: var(--background);
+    margin: 0 0 0 1vw;
+    font-weight: 700;
+    font-size: min(3rem, 10vh);
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.logo span {
+    color: var(--red);
+    font-weight: 700;
+}
+
+.logo:hover {
+    opacity: 1;
+}
+
+/*--Container Properties--*/
+
+.container {
+    text-align: left;
+    min-height: 100vh;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+/*--New Task Styling--*/
+
+.newTask {
+    display: flex;
+    padding: 4vh 0 4vh 0;
+}
+
+.taskHeading {
+    border: 0.2em solid var(--accent);
+    border-radius: 0.3em;
+    margin-left: 10vw;
+    padding: 0 0.5vw 0 0.5vw;
+    width: 45vw;
+    min-height: 7vh;
+    font-size: min(1.5rem, 5vh);
+    color: var(--accent);
+    background: none;
+    outline: none;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.taskHeading::placeholder {
+    color: var(--blue);
+    opacity: 0.5;
+}
+
+.taskHeading:hover {
+    opacity: 1;
+}
+
+/*--Add Task Button Styling--*/
+
+.addTask {
+    margin-left: 5vw;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+    font-size: min(1.5rem, 5vh);
+    color: var(--background);
+    background-color: var(--accent);
+    outline: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.addTask:hover {
+    opacity: 1;
+    color: var(--accent);
+    background-color: var(--red);
+}
+
+/*--Previous Task Styling--*/
+
+.taskContainer {
+    width: 100%;
+    padding: 2vh 0 2vh 0;
+    margin: 0;
+}
+
+.prevTask {
+    display: flex;
+    padding: 2vh 0 2vh 0;
+    animation: slideIn 0.5s ease;
+}
+
+.idTask {
+    display: none;
+}
+
+.headerTask {
+    border-bottom: 0.2em solid var(--red);
+    background: none;
+    border-radius: 0.1em;
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 12vw;
+    padding: 0 0.5vw 0 0.5vw;
+    width: 55vw;
+    min-height: 4vh;
+    font-size: min(1.2rem, 4vh);
+    color: var(--accent);
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.headerTask:hover {
+    opacity: 1;
+    color: var(--red);
+}
+
+.completeTask, .removeTask {
+    text-decoration: none;
+    font-weight: 400;
+    margin-left: 2vw;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    height: 2em;
+    width: 2em;
+    font-size: min(1rem, 3vh);
+    outline: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.completeTask {
+    color: var(--background);
+    background-color: var(--accent);
+}
+
+.removeTask {
+    color: var(--background);
+    background-color: var(--red);
+}
+
+.completeTask:hover {
+    opacity: 1;
+}
+
+.removeTask:hover {
+    opacity: 1;
+}
+
+.checked {
+    color: var(--accent);
+    background-color: var(--blue);
+}
+
+.completed {
+    border-bottom: 0.2em solid var(--accent);
+    text-decoration: line-through;
+    color: var(--accent);
+}
+
+/*--Animatons--*/
+
+.slideOut {
+    transform: translateY(3rem);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-3rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY();
+        opacity: 1;
+    }
+}
+
+/*--Media Queries--*/
+
+/*
+@media only screen and (min-width: 900px) {
+    .container {
+        display: flex;
+    }
+
+    .header {
+        width: 36%;
+        background-color: var(--accent);
+    }
+
+    .taskContainer {
+        width: 70%;
+    }
+
+    .logoContainer {
+        margin: 30vh 0 4vh 0;
+        padding: 0;
+        width: 100%;
+        background: none;
+    }
+
+    .setTheme {
+        margin-left: 2vw;
+    }
+
+    .newTask {
+        padding: 0;
+        width: 100%;
+    }
+
+    .typeHeading {
+        color: var(--background);
+        border: 0.2em solid var(--background);
+        width: 50%;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+
+    .addTask {
+        color: var(--accent);
+        background-color: var(--background);
+    }
+
+    .addTask {
+        margin: 0;
+    }
+
+    .prevTask {
+        padding: 4vh 2vw 2vh 6vw;
+    }
+}
+
+*/
